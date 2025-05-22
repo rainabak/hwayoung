@@ -27,7 +27,10 @@
      - DAYTYPES : 주중/주말 종류 갯수 2
      - w => keyword : 검색어로 keyword 가 더 어울림... 
        
-- [ ] D2
-- [ ] D3
-- [ ] D4
-- [ ] D5
+- [x] D2
+- [x] D3
+- [x] D4
+- [x] D5
+
+
+https://github.com/rainabak/hwayoung/tree/main
