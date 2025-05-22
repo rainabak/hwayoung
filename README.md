@@ -10,7 +10,23 @@
    D5 - 리팩토링이 끝난 코드에, 코드 커버리지가100% 되어야 한다
 
 [ 진행 사항 ]
-- [ ] D1
+- [x] D1
+
+     - similer 함수 리턴 타입 전부 bool 형식으로 수정
+     - input2 함수 명을 find_best_match_keyword 로 변경
+     - input2 내부 코드 길이가 길어서 모듈화
+         -> get_day_index : 월~일, 주중/주말 인덱스 찾는 함수
+         -> is_complete_hit : 완벽HIT 확인하는 함수
+         -> reArrange : 재정렬 작업
+         -> find_match_hit : 찰떡HIT 확인하는 함수
+         -> other_hit : 완벽 HIT / 찰떡 HIT 둘다 아닌경우 확인하는 함수.
+
+     - twoBest => weekTypeBest : 주중/주말의 종류를 확인하는 변수라고 생각하고 변경.
+     - dayOfWeeks :  { "monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday" } 선언
+     - DAYOFWEEK_MAX : 요일 갯수 7
+     - DAYTYPES : 주중/주말 종류 갯수 2
+     - w => keyword : 검색어로 keyword 가 더 어울림... 
+       
 - [ ] D2
 - [ ] D3
 - [ ] D4
