@@ -1,12 +1,5 @@
-//#include <iostream>
-//#include <fstream>
-//#include <string>
-//#include <vector>
-//#include <map>
-//#include <algorithm>
-//#include "fix_keyword.h"
 //
-////   D1 - 가독성있는 코드로 메서드추상화, 가독성좋은네이밍사용
+////   D2 - 가독성있는 코드로 메서드추상화, 가독성좋은네이밍사용
 //
 #include "fix_keyword.h"
 
@@ -42,9 +35,9 @@ bool FixKeyword::similer(const std::string& a, const std::string& b) {
 	int max_len = std::max(a.length(), b.length());
 	// 유사도 비율 (1.0: 완전히 같음, 0.0: 전혀 다름)
 	double similarity = 1.0 - (double)dist / max_len;
-	
+
 	int score = 1 + static_cast<int>(similarity * 99);
-	
+
 	if (score >= 80) return true;
 	return false;
 }
@@ -82,7 +75,7 @@ void FixKeyword::get_day_index(std::string& day, int& weekIndex, int& weekTypeIn
 			//평일 / 주말	
 			if (weekIndex >= 0 && weekIndex <= 4) weekTypeIndex = WEEKDAY;
 			else weekTypeIndex = WEEKEND;
-			
+
 			return;
 		}
 	}
@@ -124,7 +117,7 @@ string FixKeyword::find_match_hit(int weekIndex, int weekTypeIndex, string keyWo
 	return "";
 }
 
-void FixKeyword::other_case(int weekIndex, int weekTypeIndex, std::string& keyWord, int point)
+void FixKeyword::other_hit(int weekIndex, int weekTypeIndex, std::string& keyWord, int point)
 {
 	// 주중
 	if (weekBest[weekIndex].size() < 10) {
@@ -171,7 +164,7 @@ string FixKeyword::find_best_match_keyword(string keyWord, string dayOfWeek) {
 	long long int weekPointMax = 0;
 
 	// 완벽HIT
-	if(is_complete_hit(weekIndex, keyWord, dayPointMax, weekTypeIndex, weekPointMax)){
+	if (is_complete_hit(weekIndex, keyWord, dayPointMax, weekTypeIndex, weekPointMax)) {
 		return keyWord;
 	}
 
@@ -186,7 +179,7 @@ string FixKeyword::find_best_match_keyword(string keyWord, string dayOfWeek) {
 	}
 
 	//완벽 HIT / 찰떡 HIT 둘다 아닌경우
-	other_case(weekIndex, weekTypeIndex, keyWord, point);
+	other_hit(weekIndex, weekTypeIndex, keyWord, point);
 
 	return keyWord;
 }
@@ -202,6 +195,6 @@ void FixKeyword::read_match_keyword() {
 		string keyword, day;
 		fin >> keyword >> day;
 		string ret = find_best_match_keyword(keyword, day);
-		std::cout << (i+1) << " : " << ret << "\n";
+		std::cout << (i + 1) << " : " << ret << "\n";
 	}
 }

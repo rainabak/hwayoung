@@ -32,7 +32,7 @@ const int WEEKDAY = 0;	// 林吝 ( 岿 ~ 陛 )
 const int WEEKEND = 1;	// 林富 ( 配, 老 )
 
 class FixKeyword {
-public :
+public:
 	FixKeyword() {}
 	void read_match_keyword();
 
@@ -48,6 +48,6 @@ private:
 	void get_day_index(std::string& day, int& weekIndex, int& weekTypeIndex);
 	void reArrange(long long weekPointMax, long long weekTypePointMax);
 	string find_match_hit(int weekIndex, int weekTypeIndex, string keyWord);
-	void other_case(int weekIndex, int weekTypeIndex, std::string& keyWord, int point);
+	void other_hit(int weekIndex, int weekTypeIndex, std::string& keyWord, int point);
 	string find_best_match_keyword(string keyWord, string dayOfWeek);
 };
